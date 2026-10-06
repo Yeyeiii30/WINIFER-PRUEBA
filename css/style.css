@@ -1,14 +1,40 @@
-/* =========================================================
-   CUMPLEAÑOS #24
-   STYLE.CSS
-   Diseño: negro + rosa + rojo + blanco
-   Optimizado para celular
-========================================================= */
+/* ============================================================
+   CUMPLEAÑOS 24
+   19 AÑOS DESPUÉS
+   ============================================================ */
 
 
-/* =========================================================
-   01. CONFIGURACIÓN GENERAL
-========================================================= */
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+
+:root {
+
+    --negro: #080808;
+    --negro-suave: #111111;
+
+    --rosa: #ff4f81;
+    --rosa-claro: #ff8fab;
+    --rosa-suave: #ffd6e2;
+
+    --rojo: #e91e3f;
+    --rojo-oscuro: #9f1239;
+
+    --blanco: #ffffff;
+    --gris: #b8b8b8;
+    --gris-oscuro: #777777;
+
+    --fuente-titulo: "Playfair Display", serif;
+    --fuente-texto: "Poppins", sans-serif;
+
+    --transicion: 0.5s ease;
+
+}
+
+
+/* ============================================================
+   RESET
+   ============================================================ */
 
 * {
     margin: 0;
@@ -16,224 +42,366 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
 
+
 body {
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #000;
-    color: #fff;
+
+    background: var(--negro);
+
+    color: var(--blanco);
+
+    font-family: var(--fuente-texto);
+
     overflow-x: hidden;
+
 }
+
 
 button {
     font-family: inherit;
 }
 
-button:focus {
-    outline: none;
+
+/* ============================================================
+   GLOBOS
+   ============================================================ */
+
+.globos {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 10;
+
 }
 
-section {
-    position: relative;
+
+.globo {
+
+    position: absolute;
+
+    width: 55px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    bottom: -100px;
+
+    opacity: 0.75;
+
+    animation:
+        subirGlobo 14s linear infinite;
+
 }
 
 
-/* =========================================================
-   02. PORTADA
-========================================================= */
+/* Cuerdas */
+
+.globo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 100px;
+
+    background: rgba(255,255,255,0.3);
+
+    left: 50%;
+
+    top: 68px;
+
+}
+
+
+/* Colores */
+
+.globo-rosa {
+
+    background: var(--rosa);
+
+}
+
+
+.globo-rojo {
+
+    background: var(--rojo);
+
+}
+
+
+.globo-blanco {
+
+    background: var(--blanco);
+
+}
+
+
+.globo-negro {
+
+    background: #242424;
+
+}
+
+
+/* Posiciones */
+
+.globo:nth-child(1) {
+
+    left: 5%;
+
+    animation-delay: 0s;
+
+}
+
+
+.globo:nth-child(2) {
+
+    left: 20%;
+
+    animation-delay: 4s;
+
+}
+
+
+.globo:nth-child(3) {
+
+    left: 42%;
+
+    animation-delay: 8s;
+
+}
+
+
+.globo:nth-child(4) {
+
+    left: 65%;
+
+    animation-delay: 2s;
+
+}
+
+
+.globo:nth-child(5) {
+
+    left: 80%;
+
+    animation-delay: 6s;
+
+}
+
+
+.globo:nth-child(6) {
+
+    left: 92%;
+
+    animation-delay: 10s;
+
+}
+
+
+@keyframes subirGlobo {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-55vh)
+            rotate(5deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-120vh)
+            rotate(-5deg);
+
+    }
+
+}
+
+
+/* ============================================================
+   INICIO
+   ============================================================ */
 
 .inicio {
+
     min-height: 100vh;
 
     display: flex;
-    align-items: center;
+
     justify-content: center;
 
-    position: relative;
-
-    padding: 30px 20px;
+    align-items: center;
 
     text-align: center;
+
+    position: relative;
 
     overflow: hidden;
 
     background:
+
         radial-gradient(
-            circle at 50% 45%,
-            rgba(255, 79, 129, 0.16),
-            transparent 32%
+            circle at center,
+            rgba(255, 79, 129, 0.18),
+            transparent 35%
         ),
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(230, 57, 70, 0.10),
-            transparent 25%
-        ),
+
         linear-gradient(
-            135deg,
-            #000000 0%,
-            #17040b 50%,
-            #000000 100%
+            180deg,
+            #050505,
+            #0d0d0d
         );
+
 }
 
 
-/* =========================================================
-   CONTENIDO PORTADA
-========================================================= */
+.inicio::before {
 
-.contenido-inicio {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    animation:
+        pulso 5s infinite;
+
+}
+
+
+.inicio-contenido {
+
     position: relative;
-    z-index: 10;
 
-    width: 100%;
-    max-width: 520px;
+    z-index: 2;
 
-    animation: aparecer 1.4s ease forwards;
+    max-width: 850px;
+
+    padding: 30px;
+
 }
 
 
-/* =========================================================
-   TEXTO SUPERIOR
-========================================================= */
+.inicio-superior {
 
-.pequeno-texto {
+    font-size: 0.75rem;
+
+    letter-spacing: 5px;
+
+    color: var(--rosa);
+
     margin-bottom: 20px;
 
-    color: #ff8fab;
-
-    font-size: 0.72rem;
-    font-weight: 700;
-
-    letter-spacing: 7px;
-
-    text-transform: uppercase;
 }
 
 
-/* =========================================================
-   NÚMERO 24
-========================================================= */
+.inicio h1 {
 
-.contenido-inicio h1 {
-    margin: 0;
+    font-family: var(--fuente-titulo);
 
-    font-size: clamp(9rem, 34vw, 15rem);
+    font-size: clamp(9rem, 30vw, 20rem);
 
-    line-height: 0.78;
+    line-height: 0.75;
 
-    font-weight: 900;
+    font-weight: 400;
 
     background:
         linear-gradient(
-            180deg,
-            #ffffff 0%,
-            #ffb3c6 42%,
-            #ff4f81 72%,
-            #e63946 100%
+            135deg,
+            #ffffff,
+            #ff4f81,
+            #e91e3f
         );
 
     -webkit-background-clip: text;
-    background-clip: text;
 
     -webkit-text-fill-color: transparent;
 
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(255, 79, 129, 0.18)
-        );
+    text-shadow:
+        0 0 80px rgba(255,79,129,0.2);
 
-    animation: latido 3.5s ease-in-out infinite;
 }
 
 
-/* =========================================================
-   SUBTÍTULO
-========================================================= */
+.inicio h2 {
 
-.subtitulo {
-    max-width: 400px;
+    font-family: var(--fuente-titulo);
 
-    margin: 35px auto 0;
+    font-size: clamp(2rem, 6vw, 4rem);
 
-    color: #f5f5f5;
+    font-weight: 400;
 
-    font-size: 1.15rem;
+    margin-top: 25px;
 
-    line-height: 1.7;
 }
 
 
-/* =========================================================
-   SEPARADOR
-========================================================= */
+.inicio-texto {
 
-.separador {
-    width: 90px;
-    height: 1px;
+    color: var(--gris);
 
-    margin: 28px auto;
+    max-width: 500px;
+
+    margin: 25px auto 35px;
+
+    line-height: 1.8;
+
+}
+
+
+.btn-principal,
+.btn-siguiente,
+.btn-girar,
+.btn-carta {
+
+    border: none;
 
     background:
         linear-gradient(
-            90deg,
-            transparent,
-            #ff4f81,
-            #fff,
-            #ff4f81,
-            transparent
+            135deg,
+            var(--rosa),
+            var(--rojo)
         );
-}
 
+    color: white;
 
-/* =========================================================
-   MENSAJE PORTADA
-========================================================= */
-
-.mensaje-inicio {
-    max-width: 370px;
-
-    margin: auto;
-
-    color: #cfcfcf;
-
-    font-size: 0.92rem;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   BOTÓN COMENZAR
-========================================================= */
-
-.btn-comenzar {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 35px;
-
-    min-width: 190px;
-
-    padding: 15px 28px;
-
-    border: 1px solid #ff4f81;
+    padding: 15px 30px;
 
     border-radius: 50px;
 
-    background: rgba(0, 0, 0, 0.25);
+    font-size: 0.8rem;
 
-    color: #fff;
-
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-weight: 600;
 
     letter-spacing: 2px;
 
@@ -241,252 +409,1241 @@ section {
 
     transition:
         transform 0.3s ease,
-        background 0.3s ease,
         box-shadow 0.3s ease;
+
 }
 
-.btn-comenzar span {
-    color: #ff8fab;
 
-    transition:
-        transform 0.3s ease;
-}
+.btn-principal:hover,
+.btn-siguiente:hover,
+.btn-girar:hover,
+.btn-carta:hover {
 
-.btn-comenzar:hover {
-    background: #ff4f81;
+    transform: translateY(-4px);
 
     box-shadow:
-        0 0 30px
-        rgba(255, 79, 129, 0.35);
+        0 15px 35px rgba(255, 79, 129, 0.35);
 
-    transform: translateY(-3px);
-}
-
-.btn-comenzar:hover span {
-    color: #fff;
-
-    transform: scale(1.2);
 }
 
 
-/* =========================================================
-   03. GLOBOS
-========================================================= */
+/* ============================================================
+   CARTAS DEL RECORRIDO
+   ============================================================ */
 
-.globos {
-    position: fixed;
+.carta-recorrido {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+/* Línea vertical */
+
+.carta-recorrido::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 100%;
+
+    left: 50%;
+
+    top: 0;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,0.1),
+            transparent
+        );
+
+}
+
+
+/* Contenedor */
+
+.carta-contenedor {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 850px;
+
+}
+
+
+/* Número */
+
+.numero-carta {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: 5rem;
+
+    color: rgba(255,255,255,0.08);
+
+    line-height: 1;
+
+    margin-bottom: -20px;
+
+}
+
+
+/* Etiqueta */
+
+.etiqueta-carta {
+
+    font-size: 0.7rem;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+    color: var(--rosa);
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Título */
+
+.carta-contenedor h2 {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 45px;
+
+}
+
+
+/* ============================================================
+   FOTOGRAFÍAS
+   ============================================================ */
+
+.foto-carta {
+
+    position: relative;
+
+    width: 190px;
+
+    height: 230px;
+
+    margin: 0 auto 45px;
+
+    overflow: hidden;
+
+    background: #191919;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+
+    transform:
+        rotate(-2deg);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+}
+
+
+.foto-carta:hover {
+
+    transform:
+        rotate(0deg)
+        scale(1.04);
+
+    box-shadow:
+        0 25px 70px rgba(255,79,129,0.18);
+
+}
+
+
+.foto-carta img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+.foto-carta span {
+
+    position: absolute;
 
     inset: 0;
 
-    z-index: 20;
+    display: flex;
 
-    pointer-events: none;
+    align-items: center;
 
-    overflow: hidden;
+    justify-content: center;
+
+    color: rgba(255,255,255,0.3);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 2px;
+
 }
 
 
-.globo {
-    position: absolute;
+/* Cuando exista foto real ocultamos el texto */
 
-    bottom: -130px;
+.foto-carta img:not([src=""]) + span {
 
-    width: 48px;
-    height: 62px;
+    display: none;
 
-    border-radius: 50%;
+}
 
-    opacity: 0;
+
+/* ============================================================
+   TEXTO DE LAS CARTAS
+   ============================================================ */
+
+.texto-carta {
+
+    max-width: 650px;
+
+    margin: auto;
+
+}
+
+
+.texto-carta p {
+
+    font-size: 1rem;
+
+    line-height: 2;
+
+    color: rgba(255,255,255,0.78);
+
+    margin-bottom: 25px;
+
+}
+
+
+.texto-carta p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.texto-destacado {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: 2.3rem !important;
+
+    color: var(--blanco) !important;
+
+}
+
+
+/* ============================================================
+   FONDOS DE LAS CARTAS
+   ============================================================ */
+
+.carta-oscura {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,79,129,0.08),
+            transparent 40%
+        ),
+
+        #090909;
+
+}
+
+
+.carta-rosa {
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #10090c,
+            #1b0d12
+        );
+
+}
+
+
+.carta-negra {
+
+    background: #050505;
+
+}
+
+
+.carta-roja {
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(233,30,63,0.18),
+            transparent 45%
+        ),
+
+        #16070a;
+
+}
+
+
+.carta-rosa-clara {
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #160b10,
+            #241017
+        );
+
+}
+
+
+.carta-blanca {
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #151214,
+            #0b0a0b
+        );
+
+}
+
+
+.carta-negra-final {
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,79,129,0.15),
+            transparent 40%
+        ),
+
+        #030303;
+
+}
+
+
+/* ============================================================
+   INDICADOR
+   ============================================================ */
+
+.indicador-scroll {
+
+    margin-top: 70px;
+
+    font-size: 1.5rem;
+
+    color: var(--rosa);
 
     animation:
-        subirGlobo
-        linear
-        infinite;
+        bajar 1.5s infinite;
+
 }
 
 
-/* pequeño hilo del globo */
+@keyframes bajar {
 
-.globo::after {
-    content: "";
-
-    position: absolute;
-
-    top: 100%;
-    left: 50%;
-
-    width: 1px;
-    height: 90px;
-
-    background: rgba(255, 255, 255, 0.25);
-
-    transform: translateX(-50%);
-}
-
-
-/* brillo */
-
-.globo::before {
-    content: "";
-
-    position: absolute;
-
-    top: 12px;
-    left: 11px;
-
-    width: 9px;
-    height: 15px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.55);
-
-    filter: blur(1px);
-}
-
-
-/* =========================================================
-   COLORES GLOBOS
-========================================================= */
-
-.globo-rosa {
-    background: #ff4f81;
-
-    box-shadow:
-        0 0 25px
-        rgba(255, 79, 129, 0.30);
-}
-
-.globo-rojo {
-    background: #e63946;
-
-    box-shadow:
-        0 0 25px
-        rgba(230, 57, 70, 0.30);
-}
-
-.globo-blanco {
-    background: #f5f5f5;
-
-    box-shadow:
-        0 0 25px
-        rgba(255, 255, 255, 0.25);
-}
-
-.globo-negro {
-    background: #222;
-
-    border: 1px solid #555;
-
-    box-shadow:
-        0 0 20px
-        rgba(255, 255, 255, 0.05);
-}
-
-
-/* =========================================================
-   POSICIONES GLOBOS
-========================================================= */
-
-.globo:nth-child(1) {
-    left: 4%;
-    animation-duration: 14s;
-}
-
-.globo:nth-child(2) {
-    left: 19%;
-    animation-duration: 18s;
-    animation-delay: 3s;
-}
-
-.globo:nth-child(3) {
-    left: 38%;
-    animation-duration: 16s;
-    animation-delay: 5s;
-}
-
-.globo:nth-child(4) {
-    left: 61%;
-    animation-duration: 20s;
-    animation-delay: 1s;
-}
-
-.globo:nth-child(5) {
-    left: 79%;
-    animation-duration: 15s;
-    animation-delay: 6s;
-}
-
-.globo:nth-child(6) {
-    left: 94%;
-    animation-duration: 19s;
-    animation-delay: 4s;
-}
-
-
-/* =========================================================
-   ANIMACIÓN GLOBOS
-========================================================= */
-
-@keyframes subirGlobo {
-
-    0% {
-        transform:
-            translateY(0)
-            translateX(0)
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.75;
-    }
-
-    30% {
-        transform:
-            translateY(-30vh)
-            translateX(25px)
-            rotate(6deg);
-    }
-
-    60% {
-        transform:
-            translateY(-65vh)
-            translateX(-25px)
-            rotate(-7deg);
-    }
-
+    0%,
     100% {
-        transform:
-            translateY(-125vh)
-            translateX(20px)
-            rotate(5deg);
-
-        opacity: 0;
-    }
-}
-
-
-/* =========================================================
-   04. ANIMACIONES GENERALES
-========================================================= */
-
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(30px);
-    }
-
-    to {
-        opacity: 1;
 
         transform:
             translateY(0);
+
+        opacity: 0.5;
+
     }
+
+    50% {
+
+        transform:
+            translateY(10px);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* ============================================================
+   BOTÓN CONTINUAR
+   ============================================================ */
+
+.btn-siguiente {
+
+    margin-top: 50px;
+
+}
+
+
+/* ============================================================
+   RULETA
+   ============================================================ */
+
+.ruleta-seccion {
+
+    min-height: 100vh;
+
+    padding: 100px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,79,129,0.15),
+            transparent 35%
+        ),
+
+        #050505;
+
+}
+
+
+.encabezado-seccion {
+
+    max-width: 700px;
+
+    margin-bottom: 60px;
+
+}
+
+
+.encabezado-seccion p {
+
+    color: var(--rosa);
+
+    letter-spacing: 4px;
+
+    font-size: 0.7rem;
+
+    margin-bottom: 15px;
+
+}
+
+
+.encabezado-seccion h2 {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: clamp(2.3rem, 6vw, 4.5rem);
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+
+}
+
+
+.encabezado-seccion span {
+
+    color: var(--gris);
+
+    line-height: 1.7;
+
+}
+
+
+/* Contenedor */
+
+.ruleta-container {
+
+    position: relative;
+
+    width: 320px;
+
+    height: 320px;
+
+}
+
+
+/* Flecha */
+
+.flecha-ruleta {
+
+    position: absolute;
+
+    top: -28px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: var(--rosa);
+
+    font-size: 2rem;
+
+    z-index: 20;
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(255,79,129,0.5)
+        );
+
+}
+
+
+/* Ruleta */
+
+.ruleta {
+
+    position: relative;
+
+    width: 320px;
+
+    height: 320px;
+
+    border-radius: 50%;
+
+    background:
+
+        conic-gradient(
+            #ff4f81 0deg 15deg,
+            #171717 15deg 30deg,
+            #ff4f81 30deg 45deg,
+            #171717 45deg 60deg,
+            #ff4f81 60deg 75deg,
+            #171717 75deg 90deg,
+            #ff4f81 90deg 105deg,
+            #171717 105deg 120deg,
+            #ff4f81 120deg 135deg,
+            #171717 135deg 150deg,
+            #ff4f81 150deg 165deg,
+            #171717 165deg 180deg,
+            #ff4f81 180deg 195deg,
+            #171717 195deg 210deg,
+            #ff4f81 210deg 225deg,
+            #171717 225deg 240deg,
+            #ff4f81 240deg 255deg,
+            #171717 255deg 270deg,
+            #ff4f81 270deg 285deg,
+            #171717 285deg 300deg,
+            #ff4f81 300deg 315deg,
+            #171717 315deg 330deg,
+            #ff4f81 330deg 345deg,
+            #171717 345deg 360deg
+        );
+
+    border: 8px solid #ffffff;
+
+    box-shadow:
+        0 0 0 8px rgba(255,255,255,0.05),
+        0 0 70px rgba(255,79,129,0.25);
+
+    transition:
+        transform 5s cubic-bezier(0.15,0.75,0.15,1);
+
+}
+
+
+/* Números */
+
+.ruleta span {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 35px;
+    height: 35px;
+
+    margin:
+        -17.5px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    color: white;
+
+    transform:
+
+        rotate(
+            calc(var(--numero) * 15deg)
+        )
+
+        translateY(-145px)
+
+        rotate(
+            calc(var(--numero) * -15deg)
+        );
+
+}
+
+
+/* Centro */
+
+.ruleta::after {
+
+    content: "♥";
+
+    position: absolute;
+
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+
+    background: #0b0b0b;
+
+    border: 3px solid var(--rosa);
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: var(--rosa);
+
+    font-family: var(--fuente-titulo);
+
+    font-size: 2rem;
+
+    z-index: 10;
+
+}
+
+
+.ruleta.numero-24::after {
+
+    content: "24";
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rosa),
+            var(--rojo)
+        );
+
+}
+
+
+/* ============================================================
+   BOTÓN RULETA
+   ============================================================ */
+
+.btn-girar {
+
+    margin-top: 55px;
+
+}
+
+
+.btn-girar:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+}
+
+
+/* ============================================================
+   RESULTADO
+   ============================================================ */
+
+.resultado-ruleta {
+
+    margin-top: 40px;
+
+    max-width: 500px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid rgba(255,79,129,0.4);
+
+    border-radius: 20px;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px)
+        scale(0.95);
+
+    transition:
+        all 0.6s ease;
+
+}
+
+
+.resultado-ruleta.mostrar {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+.resultado-icono {
+
+    font-size: 3rem;
+
+    color: var(--rosa);
+
+    animation:
+        latido 1.2s infinite;
+
+}
+
+
+.resultado-ruleta h2 {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: 2rem;
+
+    margin: 10px 0;
+
+}
+
+
+.resultado-ruleta p {
+
+    color: var(--gris);
+
+    line-height: 1.7;
+
+}
+
+
+.resultado-ruleta strong {
+
+    color: var(--rosa);
+
+    font-size: 1.3rem;
+
+}
+
+
+/* ============================================================
+   CARTA FINAL
+   ============================================================ */
+
+.carta-seccion {
+
+    min-height: 100vh;
+
+    padding: 120px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,79,129,0.15),
+            transparent 35%
+        ),
+
+        #080808;
+
+}
+
+
+.carta-final-contenedor {
+
+    width: 100%;
+
+    max-width: 800px;
+
+}
+
+
+.carta-final-contenedor h2 {
+
+    font-family: var(--fuente-titulo);
+
+    font-weight: 400;
+
+    font-size: clamp(2.5rem, 7vw, 5rem);
+
+    margin-bottom: 60px;
+
+}
+
+
+/* Sobre */
+
+.sobre {
+
+    position: relative;
+
+    width: 280px;
+
+    height: 190px;
+
+    margin: 0 auto 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c2185b,
+            #880e4f
+        );
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.5);
+
+}
+
+
+.sobre::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 50%,
+            rgba(0,0,0,0.15) 50%
+        );
+
+}
+
+
+.sobre-tapa {
+
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-left: 140px solid transparent;
+
+    border-right: 140px solid transparent;
+
+    border-top: 100px solid #e91e63;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 3;
+
+}
+
+
+.corazon {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: white;
+
+    font-size: 3rem;
+
+    text-shadow:
+        0 5px 15px rgba(0,0,0,0.3);
+
+    animation:
+        latido 1.5s infinite;
+
+}
+
+
+/* ============================================================
+   CONTENIDO DE LA CARTA
+   ============================================================ */
+
+.carta-contenido {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        max-height 1s ease,
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+}
+
+
+.carta-contenido.mostrar {
+
+    max-height: 2000px;
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    margin-top: 60px;
+
+    padding: 45px 35px;
+
+    background:
+        #fffafa;
+
+    color: #222;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.5);
+
+}
+
+
+.carta-titulo {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: 2rem;
+
+    color: #9f1239;
+
+    margin-bottom: 30px;
+
+}
+
+
+.carta-texto {
+
+    text-align: left;
+
+    max-width: 650px;
+
+    margin: auto;
+
+}
+
+
+.carta-texto p {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: 1.1rem;
+
+    line-height: 2;
+
+    margin-bottom: 25px;
+
+}
+
+
+.firma {
+
+    font-family: var(--fuente-titulo);
+
+    color: #9f1239;
+
+    font-size: 1.3rem;
+
+    margin-top: 40px;
+
+}
+
+
+/* ============================================================
+   FINAL
+   ============================================================ */
+
+.final-felicitaciones {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,79,129,0.2),
+            transparent 40%
+        ),
+
+        #050505;
+
+}
+
+
+.final-contenido {
+
+    max-width: 800px;
+
+}
+
+
+.final-contenido > p:first-child {
+
+    color: var(--rosa);
+
+    font-size: 0.75rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.final-contenido h2 {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: clamp(3rem, 10vw, 8rem);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    background:
+        linear-gradient(
+            135deg,
+            white,
+            var(--rosa),
+            var(--rojo)
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.final-linea {
+
+    width: 100px;
+
+    height: 1px;
+
+    background: var(--rosa);
+
+    margin: 40px auto;
+
+}
+
+
+.final-mensaje {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    color: var(--gris);
+
+    line-height: 2;
+
+}
+
+
+.final-corazon {
+
+    color: var(--rosa);
+
+    font-size: 3rem;
+
+    margin: 35px 0;
+
+    animation:
+        latido 1.5s infinite;
+
+}
+
+
+.final-cierre {
+
+    font-family: var(--fuente-titulo);
+
+    font-size: 1.4rem;
+
+    color: white;
+
+}
+
+
+/* ============================================================
+   CONFETI
+   ============================================================ */
+
+.confeti {
+
+    position: fixed;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    border-radius: 2px;
+
+    animation-name:
+        caerConfeti;
+
+    animation-timing-function:
+        linear;
+
+    animation-fill-mode:
+        forwards;
+
+}
+
+
+@keyframes caerConfeti {
+
+    0% {
+
+        transform:
+            translateY(-30px)
+            rotate(0deg);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+
+@keyframes pulso {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: 0.3;
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.2);
+
+        opacity: 0.7;
+
+    }
+
 }
 
 
@@ -494,1733 +1651,265 @@ section {
 
     0%,
     100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.025);
-    }
-}
-
-
-/* =========================================================
-   05. SECCIÓN PASADO
-========================================================= */
-
-.pasado {
-    min-height: 100vh;
-
-    padding:
-        110px
-        25px
-        130px;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 10%,
-            rgba(255, 79, 129, 0.10),
-            transparent 35%
-        ),
-        linear-gradient(
-            180deg,
-            #050505,
-            #0d0307
-        );
-}
-
-
-/* =========================================================
-   ENCABEZADOS DE SECCIONES
-========================================================= */
-
-.encabezado-seccion {
-    max-width: 700px;
-
-    margin:
-        0 auto
-        70px;
-
-    text-align: center;
-}
-
-
-.etiqueta {
-    margin-bottom: 15px;
-
-    color: #ff4f81;
-
-    font-size: 0.68rem;
-
-    font-weight: 700;
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-}
-
-
-.encabezado-seccion h2 {
-    color: #fff;
-
-    font-size:
-        clamp(
-            2.5rem,
-            10vw,
-            5.5rem
-        );
-
-    font-weight: 800;
-
-    line-height: 1.05;
-}
-
-
-.linea-decorativa {
-    width: 90px;
-    height: 1px;
-
-    margin: 25px auto;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff4f81,
-            #fff,
-            #ff4f81,
-            transparent
-        );
-}
-
-
-.texto-intro {
-    max-width: 560px;
-
-    margin: auto;
-
-    color: #aaa;
-
-    font-size: 0.98rem;
-
-    line-height: 1.9;
-}
-
-
-/* =========================================================
-   EDAD 12
-========================================================= */
-
-.edad-pasado {
-    margin-bottom: 80px;
-
-    text-align: center;
-}
-
-
-.edad-pasado span {
-    display: block;
-
-    color: transparent;
-
-    font-size: clamp(6rem, 25vw, 9rem);
-
-    font-weight: 900;
-
-    line-height: 0.8;
-
-    -webkit-text-stroke:
-        1px
-        rgba(255, 79, 129, 0.65);
-
-    text-shadow:
-        0 0 40px
-        rgba(255, 79, 129, 0.08);
-}
-
-
-.edad-pasado p {
-    margin-top: 15px;
-
-    color: #ff8fab;
-
-    font-size: 0.7rem;
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   06. RECUERDOS
-========================================================= */
-
-.recuerdo {
-    width: 100%;
-    max-width: 1000px;
-
-    margin:
-        0 auto
-        110px;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
-    align-items: center;
-
-    gap: 60px;
-}
-
-
-.recuerdo-invertido {
-    direction: rtl;
-}
-
-
-.recuerdo-invertido
-.texto-recuerdo {
-    direction: ltr;
-}
-
-
-/* =========================================================
-   PLACEHOLDER DE FOTO
-========================================================= */
-
-.foto-placeholder {
-    position: relative;
-
-    min-height: 360px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    border:
-        1px solid
-        rgba(255, 79, 129, 0.30);
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #181818,
-            #080808
-        );
-
-    box-shadow:
-        0 25px 70px
-        rgba(0, 0, 0, 0.55);
-
-    transition:
-        transform 0.4s ease,
-        border-color 0.4s ease;
-}
-
-
-.foto-placeholder::before {
-    content: "";
-
-    position: absolute;
-
-    width: 220px;
-    height: 220px;
-
-    border-radius: 50%;
-
-    background: #ff4f81;
-
-    filter: blur(90px);
-
-    opacity: 0.10;
-}
-
-
-.foto-placeholder:hover {
-    transform: translateY(-5px);
-
-    border-color:
-        rgba(255, 79, 129, 0.65);
-}
-
-
-.foto-placeholder span {
-    position: relative;
-    z-index: 2;
-
-    color: #ff4f81;
-
-    font-size: 5rem;
-
-    font-weight: 900;
-
-    opacity: 0.35;
-}
-
-
-.foto-placeholder p {
-    position: relative;
-    z-index: 2;
-
-    margin-top: 10px;
-
-    color: #777;
-
-    font-size: 0.65rem;
-
-    letter-spacing: 3px;
-}
-
-
-/* =========================================================
-   TEXTO RECUERDO
-========================================================= */
-
-.numero-recuerdo {
-    color: #ff4f81;
-
-    font-size: 0.7rem;
-    font-weight: 700;
-
-    letter-spacing: 4px;
-}
-
-
-.texto-recuerdo h3 {
-    margin:
-        14px 0
-        18px;
-
-    color: #fff;
-
-    font-size:
-        clamp(
-            1.7rem,
-            5vw,
-            2.5rem
-        );
-
-    line-height: 1.2;
-}
-
-
-.texto-recuerdo p {
-    color: #aaa;
-
-    font-size: 0.95rem;
-
-    line-height: 1.9;
-}
-
-
-/* =========================================================
-   CONTINUAR
-========================================================= */
-
-.continuar-seccion {
-    margin-top: 30px;
-
-    text-align: center;
-}
-
-
-.continuar-seccion p {
-    margin-bottom: 20px;
-
-    color: #777;
-
-    font-size: 0.9rem;
-}
-
-
-.btn-siguiente {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    padding: 15px 27px;
-
-    border:
-        1px solid
-        #ff4f81;
-
-    border-radius: 50px;
-
-    background: transparent;
-
-    color: #fff;
-
-    font-size: 0.75rem;
-    font-weight: 700;
-
-    letter-spacing: 1.5px;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-
-.btn-siguiente span {
-    color: #ff8fab;
-
-    font-size: 1rem;
-}
-
-
-.btn-siguiente:hover {
-    background: #ff4f81;
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(255, 79, 129, 0.25);
-}
-
-
-/* =========================================================
-   07. PRESENTE
-========================================================= */
-
-.presente {
-    min-height: 100vh;
-
-    padding:
-        110px
-        25px
-        130px;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(230, 57, 70, 0.14),
-            transparent 40%
-        ),
-        linear-gradient(
-            180deg,
-            #050505,
-            #110306
-        );
-}
-
-
-/* =========================================================
-   NÚMERO 24 PRESENTE
-========================================================= */
-
-.edad-presente {
-    margin:
-        60px auto
-        50px;
-}
-
-
-.edad-presente span {
-    display: block;
-
-    color: #ff4f81;
-
-    font-size:
-        clamp(
-            7rem,
-            30vw,
-            11rem
-        );
-
-    font-weight: 900;
-
-    line-height: 0.8;
-
-    text-shadow:
-        0 0 50px
-        rgba(255, 79, 129, 0.25);
-}
-
-
-.edad-presente p {
-    margin-top: 20px;
-
-    color: #aaa;
-
-    font-size: 0.7rem;
-
-    letter-spacing: 6px;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   MENSAJE PRESENTE
-========================================================= */
-
-.presente-mensaje {
-    max-width: 680px;
-
-    margin:
-        0 auto
-        70px;
-}
-
-
-.presente-mensaje h3 {
-    margin-bottom: 22px;
-
-    color: #fff;
-
-    font-size:
-        clamp(
-            1.7rem,
-            5vw,
-            2.5rem
-        );
-
-    line-height: 1.3;
-}
-
-
-.presente-mensaje p {
-    color: #aaa;
-
-    font-size: 0.95rem;
-
-    line-height: 1.9;
-}
-
-
-/* =========================================================
-   GALERÍA PRESENTE
-========================================================= */
-
-.galeria-presente {
-    width: 100%;
-    max-width: 1050px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-
-.foto-presente {
-    position: relative;
-
-    min-height: 300px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    border:
-        1px solid
-        rgba(255, 79, 129, 0.30);
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #1b1b1b,
-            #080808
-        );
-
-    color: #ff4f81;
-
-    font-size: 0.7rem;
-    font-weight: 700;
-
-    letter-spacing: 3px;
-
-    transition:
-        transform 0.4s ease,
-        border-color 0.4s ease;
-}
-
-
-.foto-presente::before {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
-
-    background: #ff4f81;
-
-    filter: blur(90px);
-
-    opacity: 0.08;
-}
-
-
-.foto-presente:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(255, 79, 129, 0.65);
-}
-
-
-/* =========================================================
-   BOTÓN RULETA
-========================================================= */
-
-.btn-ruleta {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 70px;
-
-    padding: 17px 35px;
-
-    border: none;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff4f81,
-            #e63946
-        );
-
-    color: #fff;
-
-    font-size: 0.75rem;
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 35px
-        rgba(255, 79, 129, 0.22);
-
-    transition: 0.3s ease;
-}
-
-
-.btn-ruleta span {
-    font-size: 1rem;
-}
-
-
-.btn-ruleta:hover {
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 15px 45px
-        rgba(255, 79, 129, 0.35);
-}
-
-
-/* =========================================================
-   08. RULETA
-========================================================= */
-
-.ruleta-seccion {
-    min-height: 100vh;
-
-    padding:
-        110px
-        20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255, 79, 129, 0.13),
-            transparent 35%
-        ),
-        #050505;
-
-    overflow: hidden;
-}
-
-
-.ruleta-seccion h2 {
-    max-width: 600px;
-
-    margin-top: 10px;
-
-    color: #fff;
-
-    font-size:
-        clamp(
-            2.2rem,
-            9vw,
-            4.5rem
-        );
-
-    line-height: 1.1;
-}
-
-
-.texto-ruleta {
-    max-width: 500px;
-
-    margin:
-        25px auto
-        45px;
-
-    color: #aaa;
-
-    font-size: 0.95rem;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   CONTENEDOR RULETA
-========================================================= */
-
-.ruleta-container {
-    position: relative;
-
-    width: min(
-        88vw,
-        360px
-    );
-
-    aspect-ratio: 1 / 1;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* =========================================================
-   RUEDA
-========================================================= */
-
-.ruleta {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    border:
-        5px solid
-        #ff4f81;
-
-    background:
-        conic-gradient(
-            #ff4f81 0deg 15deg,
-            #1a1a1a 15deg 30deg,
-            #e63946 30deg 45deg,
-            #111 45deg 60deg,
-            #ff4f81 60deg 75deg,
-            #111 75deg 90deg,
-            #e63946 90deg 105deg,
-            #1a1a1a 105deg 120deg,
-            #ff4f81 120deg 135deg,
-            #111 135deg 150deg,
-            #e63946 150deg 165deg,
-            #1a1a1a 165deg 180deg,
-            #ff4f81 180deg 195deg,
-            #111 195deg 210deg,
-            #e63946 210deg 225deg,
-            #111 225deg 240deg,
-            #ff4f81 240deg 255deg,
-            #1a1a1a 255deg 270deg,
-            #e63946 270deg 285deg,
-            #111 285deg 300deg,
-            #ff4f81 300deg 315deg,
-            #111 315deg 330deg,
-            #e63946 330deg 345deg,
-            #111 345deg 360deg
-        );
-
-    box-shadow:
-        0 0 0 8px rgba(255, 79, 129, 0.06),
-        0 20px 60px
-        rgba(0, 0, 0, 0.65);
-
-    transition:
-        transform 5s
-        cubic-bezier(
-            0.12,
-            0.75,
-            0.15,
-            1
-        );
-}
-
-
-/* =========================================================
-   NÚMEROS RULETA
-========================================================= */
-
-.ruleta span {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin:
-        -17px
-        0
-        0
-        -17px;
-
-    color: #fff;
-
-    font-size: 0.65rem;
-
-    font-weight: 800;
-
-    transform:
-        rotate(
-            calc(
-                var(--numero) * 15deg
-            )
-        )
-        translateY(-145px)
-        rotate(
-            calc(
-                var(--numero) * -15deg
-            )
-        );
-}
-
-
-/* asignación automática de posiciones */
-
-.ruleta span:nth-child(1)  { --numero: 0; }
-.ruleta span:nth-child(2)  { --numero: 1; }
-.ruleta span:nth-child(3)  { --numero: 2; }
-.ruleta span:nth-child(4)  { --numero: 3; }
-.ruleta span:nth-child(5)  { --numero: 4; }
-.ruleta span:nth-child(6)  { --numero: 5; }
-.ruleta span:nth-child(7)  { --numero: 6; }
-.ruleta span:nth-child(8)  { --numero: 7; }
-.ruleta span:nth-child(9)  { --numero: 8; }
-.ruleta span:nth-child(10) { --numero: 9; }
-.ruleta span:nth-child(11) { --numero: 10; }
-.ruleta span:nth-child(12) { --numero: 11; }
-.ruleta span:nth-child(13) { --numero: 12; }
-.ruleta span:nth-child(14) { --numero: 13; }
-.ruleta span:nth-child(15) { --numero: 14; }
-.ruleta span:nth-child(16) { --numero: 15; }
-.ruleta span:nth-child(17) { --numero: 16; }
-.ruleta span:nth-child(18) { --numero: 17; }
-.ruleta span:nth-child(19) { --numero: 18; }
-.ruleta span:nth-child(20) { --numero: 19; }
-.ruleta span:nth-child(21) { --numero: 20; }
-.ruleta span:nth-child(22) { --numero: 21; }
-.ruleta span:nth-child(23) { --numero: 22; }
-.ruleta span:nth-child(24) { --numero: 23; }
-
-
-/* =========================================================
-   CENTRO RULETA
-========================================================= */
-
-.ruleta::after {
-    content: "24";
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    width: 72px;
-    height: 72px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    transform:
-        translate(-50%, -50%);
-
-    border:
-        3px solid
-        #ff4f81;
-
-    border-radius: 50%;
-
-    background: #080808;
-
-    color: #fff;
-
-    font-size: 1.2rem;
-    font-weight: 900;
-
-    box-shadow:
-        0 0 25px
-        rgba(255, 79, 129, 0.30);
-}
-
-
-/* =========================================================
-   FLECHA
-========================================================= */
-
-.flecha-ruleta {
-    position: absolute;
-
-    top: -18px;
-    left: 50%;
-
-    z-index: 5;
-
-    transform:
-        translateX(-50%);
-
-    color: #fff;
-
-    font-size: 2rem;
-
-    filter:
-        drop-shadow(
-            0 0 8px
-            rgba(255, 79, 129, 0.6)
-        );
-}
-
-
-/* =========================================================
-   BOTÓN GIRAR
-========================================================= */
-
-.btn-girar {
-    margin-top: 50px;
-
-    padding:
-        17px
-        35px;
-
-    border:
-        1px solid
-        #ff4f81;
-
-    border-radius: 50px;
-
-    background: transparent;
-
-    color: #fff;
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-
-.btn-girar:hover {
-    background: #ff4f81;
-
-    box-shadow:
-        0 0 30px
-        rgba(255, 79, 129, 0.30);
-
-    transform:
-        translateY(-3px);
-}
-
-
-/* =========================================================
-   09. CARTA
-========================================================= */
-
-.carta-seccion {
-    min-height: 100vh;
-
-    padding:
-        110px
-        25px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255, 79, 129, 0.13),
-            transparent 38%
-        ),
-        linear-gradient(
-            180deg,
-            #090909,
-            #000
-        );
-}
-
-
-.carta-seccion h2 {
-    margin-top: 35px;
-
-    color: #fff;
-
-    font-size:
-        clamp(
-            2rem,
-            8vw,
-            4rem
-        );
-}
-
-
-/* =========================================================
-   SOBRE
-========================================================= */
-
-.sobre {
-    position: relative;
-
-    width: 220px;
-    height: 145px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border:
-        1px solid
-        rgba(255, 79, 129, 0.5);
-
-    background:
-        linear-gradient(
-            135deg,
-            #171717,
-            #080808
-        );
-
-    box-shadow:
-        0 20px 60px
-        rgba(0, 0, 0, 0.6);
-
-    animation:
-        flotarSobre
-        3s ease-in-out infinite;
-}
-
-
-.sobre::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            35deg,
-            transparent 49%,
-            #ff4f81 50%,
-            transparent 51%
-        );
-
-    opacity: 0.35;
-}
-
-
-.sobre::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            145deg,
-            transparent 49%,
-            #e63946 50%,
-            transparent 51%
-        );
-
-    opacity: 0.25;
-}
-
-
-.corazon {
-    position: relative;
-
-    z-index: 3;
-
-    color: #ff4f81;
-
-    font-size: 3rem;
-
-    text-shadow:
-        0 0 25px
-        rgba(255, 79, 129, 0.4);
-}
-
-
-@keyframes flotarSobre {
-
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-10px);
-    }
-}
-
-
-/* =========================================================
-   BOTÓN CARTA
-========================================================= */
-
-.btn-carta {
-    margin-top: 30px;
-
-    padding:
-        16px
-        30px;
-
-    border:
-        1px solid
-        #ff4f81;
-
-    border-radius: 50px;
-
-    background: #ff4f81;
-
-    color: #fff;
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 30px
-        rgba(255, 79, 129, 0.20);
-
-    transition: 0.3s ease;
-}
-
-
-.btn-carta:hover {
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 15px 40px
-        rgba(255, 79, 129, 0.35);
-}
-
-
-/* =========================================================
-   CONTENIDO CARTA
-========================================================= */
-
-.carta-contenido {
-    width: 100%;
-    max-width: 700px;
-
-    margin-top: 45px;
-
-    padding:
-        45px
-        35px;
-
-    border:
-        1px solid
-        rgba(255, 79, 129, 0.25);
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #ffeef3
-        );
-
-    color: #1a1a1a;
-
-    text-align: left;
-
-    box-shadow:
-        0 25px 80px
-        rgba(255, 79, 129, 0.10);
-
-    display: none;
-
-    animation:
-        aparecerCarta
-        1s ease forwards;
-}
-
-
-.carta-contenido.mostrar {
-    display: block;
-}
-
-
-@keyframes aparecerCarta {
-
-    from {
-        opacity: 0;
 
         transform:
-            translateY(30px)
-            scale(0.96);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
             scale(1);
-    }
-}
 
-
-/* =========================================================
-   TÍTULO CARTA
-========================================================= */
-
-.carta-titulo {
-    margin-bottom: 30px;
-
-    color: #c72c5b;
-
-    font-size: 1.3rem;
-
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   TEXTO CARTA
-========================================================= */
-
-.carta-texto {
-    color: #333;
-
-    font-size: 0.98rem;
-
-    line-height: 2;
-}
-
-
-.carta-texto p {
-    margin-bottom: 20px;
-}
-
-
-/* =========================================================
-   FIRMA
-========================================================= */
-
-.firma {
-    margin-top: 35px;
-
-    color: #777;
-
-    font-size: 0.9rem;
-
-    line-height: 1.7;
-
-    text-align: right;
-}
-
-
-/* =========================================================
-   10. CONTENIDO PRINCIPAL
-   Se conserva por compatibilidad
-========================================================= */
-
-.contenido-principal {
-    min-height: 100vh;
-
-    padding: 80px 25px;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            180deg,
-            #000,
-            #16040b
-        );
-}
-
-
-/* =========================================================
-   11. RESPONSIVE - TABLET
-========================================================= */
-
-@media (max-width: 800px) {
-
-    .recuerdo {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
-        margin-bottom: 90px;
     }
 
-    .recuerdo-invertido {
-        direction: ltr;
-    }
+    50% {
 
-    .recuerdo-invertido
-    .texto-recuerdo {
-        direction: ltr;
-    }
-
-    .galeria-presente {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .foto-placeholder {
-        min-height: 330px;
-    }
-
-    .foto-presente {
-        min-height: 320px;
-    }
-
-    .ruleta span {
         transform:
-            rotate(
-                calc(
-                    var(--numero) * 15deg
-                )
-            )
-            translateY(-130px)
-            rotate(
-                calc(
-                    var(--numero) * -15deg
-                )
-            );
+            scale(1.2);
+
     }
+
 }
 
 
-/* =========================================================
-   12. RESPONSIVE - CELULAR
-========================================================= */
+/* ============================================================
+   ELEMENTOS QUE APARECEN AL HACER SCROLL
+   ============================================================ */
 
-@media (max-width: 600px) {
+.recuerdo,
+.presente-mensaje,
+.foto-presente,
+.ruleta-container,
+.sobre {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+
+.recuerdo.visible,
+.presente-mensaje.visible,
+.foto-presente.visible,
+.ruleta-container.visible,
+.sobre.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 700px) {
 
     .inicio {
-        padding:
-            25px
-            18px;
+
+        padding: 30px 20px;
+
     }
 
 
-    .pequeno-texto {
-        font-size: 0.62rem;
+    .inicio-superior {
 
-        letter-spacing: 4px;
-    }
+        letter-spacing: 3px;
 
-
-    .contenido-inicio h1 {
-        font-size:
-            clamp(
-                8rem,
-                38vw,
-                11rem
-            );
-    }
-
-
-    .subtitulo {
-        margin-top: 30px;
-
-        font-size: 1rem;
-
-        line-height: 1.6;
-    }
-
-
-    .mensaje-inicio {
-        font-size: 0.88rem;
-
-        line-height: 1.7;
-    }
-
-
-    .btn-comenzar {
-        min-width: 175px;
-
-        padding:
-            14px
-            24px;
-    }
-
-
-    /* GLOBOS */
-
-    .globo {
-        width: 36px;
-        height: 48px;
-    }
-
-
-    .globo::after {
-        height: 65px;
-    }
-
-
-    /* PASADO */
-
-    .pasado,
-    .presente,
-    .ruleta-seccion,
-    .carta-seccion {
-        padding:
-            90px
-            18px
-            110px;
-    }
-
-
-    .encabezado-seccion {
-        margin-bottom: 55px;
-    }
-
-
-    .etiqueta {
         font-size: 0.6rem;
 
-        letter-spacing: 4px;
     }
 
 
-    .texto-intro {
-        font-size: 0.9rem;
-
-        line-height: 1.8;
-    }
-
-
-    .edad-pasado {
-        margin-bottom: 65px;
-    }
-
-
-    .edad-pasado span {
-        font-size: 7rem;
-    }
-
-
-    .recuerdo {
-        gap: 28px;
-
-        margin-bottom: 80px;
-    }
-
-
-    .foto-placeholder {
-        min-height: 290px;
-
-        border-radius: 18px;
-    }
-
-
-    .foto-placeholder span {
-        font-size: 4rem;
-    }
-
-
-    .texto-recuerdo h3 {
-        font-size: 1.7rem;
-    }
-
-
-    .texto-recuerdo p {
-        font-size: 0.9rem;
-
-        line-height: 1.8;
-    }
-
-
-    /* PRESENTE */
-
-    .edad-presente {
-        margin:
-            55px auto
-            45px;
-    }
-
-
-    .edad-presente span {
-        font-size: 7.5rem;
-    }
-
-
-    .presente-mensaje h3 {
-        font-size: 1.7rem;
-    }
-
-
-    .presente-mensaje p {
-        font-size: 0.9rem;
-    }
-
-
-    .galeria-presente {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-    }
-
-
-    .foto-presente {
-        min-height: 340px;
-
-        border-radius: 18px;
-    }
-
-
-    .btn-ruleta {
-        margin-top: 55px;
+    .carta-recorrido {
 
         padding:
-            16px
-            28px;
+            90px 20px;
+
     }
 
 
-    /* RULETA */
+    .numero-carta {
 
-    .ruleta-seccion h2 {
-        font-size: 2.4rem;
+        font-size: 4rem;
+
     }
 
 
-    .texto-ruleta {
-        font-size: 0.9rem;
+    .carta-contenedor h2 {
 
         margin-bottom: 35px;
+
+    }
+
+
+    .foto-carta {
+
+        width: 160px;
+
+        height: 200px;
+
+    }
+
+
+    .texto-carta p {
+
+        font-size: 0.92rem;
+
+        line-height: 1.9;
+
+    }
+
+
+    .texto-destacado {
+
+        font-size: 2rem !important;
+
     }
 
 
     .ruleta-container {
-        width:
-            min(
-                90vw,
-                330px
-            );
+
+        width: 280px;
+
+        height: 280px;
+
+    }
+
+
+    .ruleta {
+
+        width: 280px;
+
+        height: 280px;
+
     }
 
 
     .ruleta span {
-        width: 28px;
-        height: 28px;
-
-        margin:
-            -14px
-            0
-            0
-            -14px;
-
-        font-size: 0.58rem;
 
         transform:
+
             rotate(
-                calc(
-                    var(--numero) * 15deg
-                )
+                calc(var(--numero) * 15deg)
             )
-            translateY(-118px)
+
+            translateY(-125px)
+
             rotate(
-                calc(
-                    var(--numero) * -15deg
-                )
+                calc(var(--numero) * -15deg)
             );
+
     }
 
 
-    .ruleta::after {
-        width: 65px;
-        height: 65px;
+    .carta-contenido.mostrar {
+
+        padding:
+            30px 20px;
+
+    }
+
+
+    .carta-texto p {
 
         font-size: 1rem;
+
     }
 
-
-    .flecha-ruleta {
-        top: -15px;
-
-        font-size: 1.7rem;
-    }
-
-
-    .btn-girar {
-        margin-top: 40px;
-
-        padding:
-            15px
-            27px;
-    }
-
-
-    /* CARTA */
 
     .sobre {
-        width: 190px;
-        height: 125px;
+
+        width: 250px;
+
+        height: 170px;
+
     }
 
 
-    .corazon {
-        font-size: 2.5rem;
+    .sobre-tapa {
+
+        border-left-width: 125px;
+
+        border-right-width: 125px;
+
+        border-top-width: 90px;
+
     }
 
-
-    .carta-seccion h2 {
-        font-size: 2.1rem;
-    }
-
-
-    .carta-contenido {
-        padding:
-            30px
-            22px;
-
-        border-radius: 16px;
-    }
-
-
-    .carta-titulo {
-        font-size: 1.15rem;
-    }
-
-
-    .carta-texto {
-        font-size: 0.9rem;
-
-        line-height: 1.9;
-    }
-
-
-    .firma {
-        font-size: 0.82rem;
-    }
 }
 
 
-/* =========================================================
-   13. CELULARES MUY PEQUEÑOS
-========================================================= */
+@media (max-width: 400px) {
 
-@media (max-width: 380px) {
+    .inicio h1 {
 
-    .contenido-inicio h1 {
-        font-size: 7.5rem;
+        font-size: 9rem;
+
     }
 
 
-    .subtitulo {
-        font-size: 0.92rem;
-    }
+    .carta-contenedor h2 {
 
+        font-size: 2.6rem;
 
-    .edad-pasado span {
-        font-size: 6rem;
-    }
-
-
-    .edad-presente span {
-        font-size: 6.5rem;
     }
 
 
     .ruleta-container {
-        width: 290px;
+
+        width: 250px;
+
+        height: 250px;
+
+    }
+
+
+    .ruleta {
+
+        width: 250px;
+
+        height: 250px;
+
     }
 
 
     .ruleta span {
+
         transform:
+
             rotate(
-                calc(
-                    var(--numero) * 15deg
-                )
+                calc(var(--numero) * 15deg)
             )
-            translateY(-103px)
+
+            translateY(-110px)
+
             rotate(
-                calc(
-                    var(--numero) * -15deg
-                )
+                calc(var(--numero) * -15deg)
             );
+
+        font-size: 0.65rem;
+
     }
+
+
+    .foto-carta {
+
+        width: 145px;
+
+        height: 180px;
+
+    }
+
+
+    .final-cierre {
+
+        font-size: 1.1rem;
+
+    }
+
 }
